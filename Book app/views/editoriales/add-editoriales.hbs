@@ -1,0 +1,61 @@
+<div class="row">
+
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+
+<div class="card">
+  <div class="card-header bg-secondary text-white text-center fs-3">
+    {{#if editMode}}Editar{{else}}Agregar nuevo{{/if}} libro 
+  </div>
+  <div class="card-body">
+
+
+   <form method="POST" action="{{#if editMode}}/edit-libro{{else}}/add-libro{{/if}}" style="margin: 10px;">
+
+    <div class="mb-3">
+    <label for="urlimg" class="form-label">Url Imagen</label>
+    <input type="text" class="form-control" required id="urlimg" name="urlimg" value="{{#if editMode}}{{libro.urlimg}} {{/if}}" />
+    </div>
+
+    <div class="mb-3">
+    <label for="titulo" class="form-label">Título</label>
+    <input type="text" class="form-control" required id="titulo" name="titulo" value="{{#if editMode}}{{libro.titulo}} {{/if}}"/>
+    </div>
+
+    <div>
+    <label for="ano" class="form-label">Año</label>
+    <input type="text" class="form-control" required id="año" name="ano" value="{{#if editMode}}{{libro.ano}} {{/if}}" />
+    </div>
+
+    <div>
+    <label for="autor" class="form-label">Autor</label>
+    <input type="text" class="form-control" required id="autor" name="autor" value="{{#if editMode}}{{libro.autor}} {{/if}}" />
+    </div>
+
+    <div>
+    <label for="categoria" class="form-label">Categoría</label>
+    <input type="text" class="form-control" required id="categoria" name="categoria" value="{{#if editMode}}{{libro.categoria}} {{/if}}" />
+    </div>
+
+    <div>
+    <label for="editorial" class="form-label">Editorial</label>
+    <input type="text" class="form-control" required id="editorial" name="editorial" value="{{#if editMode}}{{libro.editorial}} {{/if}}" />
+    </div>
+
+    {{#if editMode}}
+       <input type="hidden" name="libroId" value="{{libro.id}}">
+    {{/if}}
+ 
+    <button type="submit" class="btn btn-primary float-start" style="margin-top:10px;">{{#if editMode}}Guardar{{else}}Confirmar{{/if}}</button>
+    
+    <a href="/" class="btn btn-danger float-end" style="margin-top:10px;">Cancelar</a>
+
+   </form>
+ 
+  </div>
+</div>
+
+    </div>
+    <div class="col-md-6"></div>
+
+</div>

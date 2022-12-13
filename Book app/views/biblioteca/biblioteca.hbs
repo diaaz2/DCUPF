@@ -1,0 +1,39 @@
+<main>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Registrate ya!</h1>
+            <p class="lead text-muted">Llega a donde quieras!</p>
+            <p>
+                <a href="/" class="btn btn-outline-secondary btn-light- my-2">Administrar usuarios</a>
+
+
+            </p>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light" style="border-radius: 10px;">
+        <div class="container">
+
+            <div class="row">
+
+                {{#each libros as |libro|}}
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem; margin:8px;">
+                        <img class="card-img-top"
+                            src="{{libro.urlimg}}"
+                            alt="Portada del libro" style="height: 430px; width: 286px;">
+                        <div class="card-body">
+                            <p class="card-text"><strong>{{libro.titulo}}</strong> - {{libro.ano}}</p>
+                            <p class="card-text">{{libro.autor}}</p>
+                            <p class="card-text">{{libro.categoria}}</p>
+                            <p class="card-text text-center fst-italic fw-light text-secondary">{{libro.editorial}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+
+        </div>
+    </div>
+
+</main>

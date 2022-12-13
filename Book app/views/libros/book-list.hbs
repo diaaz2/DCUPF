@@ -1,0 +1,49 @@
+<main>
+
+    <section class="jumbotron text-start">
+        <div class="container">
+            <p>
+                <a href="/add-libro" class="btn btn-outline-secondary btn-light my-2">Agregar nuevo usuario</a>
+                <a href="/biblioteca" class="btn btn-outline-secondary btn-light my-2">Volver</a>
+            </p>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light" style="border-radius: 10px;">
+        <div class="container">
+
+            <div class="row">
+
+                {{#each libros as |libro|}}
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem; margin:8px;">
+                        <img class="card-img-top"
+                            src="{{libro.urlimg}}"
+                            alt="Portada del libro" style="height: 430px; width: 286px;">
+                        <div class="card-body">
+                            <p class="card-text"><strong>Id: </strong>{{libro.titulo}}</p>
+                            <p class="card-text">{{libro.ano}} {{libro.autor}}</p>
+                            &nbsp;
+                            <p class="card-text"><strong>Contactos:</strong></p>
+                            <p class="card-text">{{libro.categoria}}</p>
+                            <p class="card-text">{{libro.editorial}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary" href="/edit-libro/1?edit=true">Editar</a>
+
+                            <form class="form-inline" action="/delete-libro" method="post">
+
+                                <input type="hidden" name="libroId" value="{{libro.id}}" />
+                                <button type="submit" class="btn btn-danger float-end">Eliminar</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+
+        </div>
+    </div>
+
+</main>

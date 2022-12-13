@@ -1,0 +1,46 @@
+<div class="row">
+
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+
+<div class="card">
+  <div class="card-header bg-secondary text-white text-center fs-3">
+    {{#if editMode}}Editar{{else}}Agregar nueva{{/if}} categoria
+  </div>
+  <div class="card-body">
+
+
+   <form method="POST" action="{{#if editMode}}/edit-categorias{{else}}/add-categorias{{/if}}" style="margin: 10px;">
+
+    <div class="mb-3">
+    <label for="titulo" class="form-label">Nombre</label>
+    <input type="text" class="form-control" required id="titulo" name="titulo" value="{{#if editMode}}{{categorias.titulo}} {{/if}}"/>
+    </div>
+
+    <div>
+    <label for="descripcion" class="form-label">Descripcion</label>
+    <input type="text" class="form-control" required id="descripcion" name="descripcion" value="{{#if editMode}}{{categorias.descripcion}} {{/if}}" />
+    </div>
+
+    <div>
+    <label for="cantidadlibros" class="form-label">Cantidad de libros</label>
+    <input type="text" class="form-control" required id="cantidadlibros" name="cantidadlibros" value="{{#if editMode}}{{categorias.cantidadlibros}} {{/if}}" />
+    </div>
+
+    {{#if editMode}}
+       <input type="hidden" name="categoriasId" value="{{categorias.id}}">
+    {{/if}}
+ 
+    <button type="submit" class="btn btn-primary float-start" style="margin-top:10px;">{{#if editMode}}Guardar{{else}}Confirmar{{/if}}</button>
+    
+    <a href="/" class="btn btn-danger float-end" style="margin-top:10px;">Cancelar</a>
+
+   </form>
+ 
+  </div>
+</div>
+
+    </div>
+    <div class="col-md-6"></div>
+
+</div>

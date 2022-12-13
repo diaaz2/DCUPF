@@ -1,0 +1,42 @@
+<main>
+    <section class="jumbotron text-start">
+        <div class="container">
+            <p>
+                <a href="/add-categorias" class="btn btn-outline-secondary btn-light my-2">Agregar categoria</a>
+                <a href="/biblioteca" class="btn btn-outline-secondary btn-light my-2">Volver</a>
+            </p>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light" style="border-radius: 10px;">
+        <div class="container">
+
+            <div class="row">
+
+                {{#each categorias as |categoria|}}
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem; margin:8px;">
+                        <div class="card-body">
+                            <p class="card-text"><strong>{{categoria.titulo}}</strong></p>
+                            <p class="card-text">{{categoria.descripcion}}</p>
+                            <p class="card-text">Libros asociados:{{categoria.cantidadlibros}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary" href="/edit-categorias/1?edit=true">Editar</a> 
+
+                            <form class="form-inline" action="/delete-categorias" method="post">
+
+                                <input type="hidden" name="categoriasId" value="1" />
+                                <button type="submit" class="btn btn-danger float-end">Eliminar</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+
+        </div>
+    </div>
+
+</main>
